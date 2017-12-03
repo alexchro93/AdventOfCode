@@ -5,7 +5,7 @@ PROGRAM-ID. DAY2_1.
 DATA DIVISION.
     WORKING-STORAGE SECTION.
         *> Variables for finding next largest odd square
-        01 WS-STARTING-NUM          PIC 9(20) VALUE .
+        01 WS-STARTING-NUM          PIC 9(20) VALUE 277678.
         01 WS-ODD-NUM               PIC 9(20).
         01 WS-ODD-SQUARE            PIC 9(20).
         01 WS-FOUND-SQUARE          PIC A VALUE 'N'.
