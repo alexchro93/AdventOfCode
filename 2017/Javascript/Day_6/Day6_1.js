@@ -10,8 +10,8 @@ let bankState = blocks.join('');
 let states = {};
 let numSteps = 0;
 while (states[bankState] != 1) {
-    states[bankState] = 1;
-
+    states[bankState] = ++states[bankState] || 1;
+    
     /* Find index of largest num blocks, get num blocks and set val to 0 */
     let largestNum = Math.max(...blocks);
     let indexLargestNum = blocks.indexOf(largestNum);
