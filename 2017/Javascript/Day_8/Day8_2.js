@@ -40,11 +40,11 @@ inpLines.forEach(line => {
     let words = line.split(" ");
 
     // Execute Instruction
-    let registerVal = registers[words[0]];
-    if (conditions[words[5]](registers[words[4]], Number(words[6]))) {    
-       let newRegisterVal = actions[words[1]](registerVal, Number(words[2]));
-       registers[words[0]] = newRegisterVal;    
-       maxValue = (newRegisterVal > maxValue) ? newRegisterVal : maxValue;        
+    if (conditions[words[5]](registers[words[4]], Number(words[6]))) {   
+        let registerVal = registers[words[0]];        
+        let newRegisterVal = actions[words[1]](registerVal, Number(words[2]));
+        registers[words[0]] = newRegisterVal;    
+        maxValue = (newRegisterVal > maxValue) ? newRegisterVal : maxValue;        
     }
 });
 
