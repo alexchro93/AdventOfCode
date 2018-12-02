@@ -36,5 +36,49 @@ namespace Tests
             Assert.AreEqual(expectedAns, actualAns);
         }
         #endregion
+
+        #region DayTwoOne
+        [Test]
+        [TestCase(new string[] 
+        { 
+            "abcdef", 
+            "bababc",
+            "abbcde",
+            "abcccd",
+            "aabcdd",
+            "abcdee",
+            "ababab"
+        }, 12)]
+        public void DayTwoOne_SampleInput_ReturnResult(string[] inp, int expectedAns)
+        {
+            // Act
+            var actualAns = Solutions.DayTwoOne(inp);
+            
+            // Assert
+            Assert.AreEqual(expectedAns, actualAns);
+        }
+        #endregion
+
+        #region DayTwoTwo
+        [Test]
+        [TestCase(new string[] 
+        { 
+            "abcde",
+            "fghij",
+            "klmno",
+            "pqrst",
+            "fguij",
+            "axcye",
+            "wvxyz"
+        }, "fgij")]
+        public void DayTwoTwo_SampleInput_ReturnResult(string[] inp, string expectedAns)
+        {
+            // Act
+            var actualAns = Solutions.DayTwoTwo(inp);
+            
+            // Assert
+            Assert.AreEqual(expectedAns, actualAns); 
+        }
+        #endregion
     }
 }
