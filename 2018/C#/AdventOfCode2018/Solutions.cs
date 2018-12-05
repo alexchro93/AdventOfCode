@@ -142,5 +142,85 @@ namespace AdventOfCode2018
             return idOverlaps.Where(x => x.Value == false).Single().Key;
         }
         #endregion
+    
+        #region Day4
+        public enum Event
+        {
+            Begin,
+            FallAsleep,
+            WakeUp
+        }
+
+        public static int DayFourOne(Dictionary<int, List<(DateTime, Event)>> inp)
+        {
+            var possibleAns = new HashSet<(int, int, int)>();
+
+            inp.ToList().ForEach(x => {
+                var timesSawMinute = new int[60];
+                var timeSpentSleeping = 0;
+                var sleepStart = new DateTime();
+                foreach (var entry in x.Value)
+                {
+                    switch (entry.Item2)
+                    {
+                        case Event.FallAsleep:
+                            sleepStart = entry.Item1;
+                            break;
+                        case Event.WakeUp:
+                            var minsSleeping = entry.Item1.Minute - sleepStart.Minute;
+                            timeSpentSleeping += minsSleeping;
+                            Enumerable.Range(sleepStart.Minute, minsSleeping)
+                                      .ToList()
+                                      .ForEach(i => timesSawMinute[i]++);
+                            break;
+                    }
+                    possibleAns.Add((
+                        x.Key,
+                        timeSpentSleeping,
+                        Array.IndexOf(timesSawMinute, timesSawMinute.Max())
+                    ));
+                }
+            });
+
+            var ans = possibleAns.Where(x => x.Item2 == possibleAns.Max(i => i.Item2)).First();
+            return ans.Item1 * ans.Item3;
+        }
+
+        public static int DayFourTwo(Dictionary<int, List<(DateTime, Event)>> inp)
+        {
+            var possibleAns = new HashSet<(int, int, (int, int))>();
+
+            inp.ToList().ForEach(x => {
+                var timesSawMinute = new int[60];
+                var timeSpentSleeping = 0;
+                var sleepStart = new DateTime();
+
+                foreach (var entry in x.Value)
+                {
+                    switch (entry.Item2)
+                    {
+                        case Event.FallAsleep:
+                            sleepStart = entry.Item1;
+                            break;
+                        case Event.WakeUp:
+                            var minsSleeping = entry.Item1.Minute - sleepStart.Minute;
+                            timeSpentSleeping += minsSleeping;
+                            Enumerable.Range(sleepStart.Minute, minsSleeping)
+                                      .ToList()
+                                      .ForEach(i => timesSawMinute[i]++);
+                            break;
+                    }
+                    possibleAns.Add((
+                        x.Key,
+                        timeSpentSleeping,
+                        (Array.IndexOf(timesSawMinute, timesSawMinute.Max()), timesSawMinute.Max())
+                    ));
+                }
+            });
+
+            var ans = possibleAns.Where(x => x.Item3.Item2 == possibleAns.Max(i => i.Item3.Item2)).First();
+            return ans.Item1 * ans.Item3.Item1;
+        }
+        #endregion
     }
 }

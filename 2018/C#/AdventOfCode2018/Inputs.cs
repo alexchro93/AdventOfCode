@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using static AdventOfCode2018.Solutions;
 
 namespace AdventOfCode2018
 {
@@ -63,6 +64,60 @@ namespace AdventOfCode2018
         {
             var inputFilePath = "./input/DayThree.txt";
             return GetDayThreeInput(File.ReadAllLines(inputFilePath));
+        }
+
+        public static Dictionary<int, List<(DateTime, Event)>> GetDayFourInput(string[] rawInp)
+        {
+            var orderedInput = rawInp
+                .Select(x => {
+                    var date = DateTime.Parse(x.Substring(1, 16));
+                    var rest = x.Substring(19);
+
+                    return new { date, rest }; 
+                }).OrderBy(x => x.date).ToList();
+        
+            var inputs = new Dictionary<int, List<(DateTime, Event)>>();
+            var guardId = 0;
+            var eventType = Event.Begin;
+
+            foreach (var entry in orderedInput)
+            {
+                var inpComponents = entry.rest.Split();
+                if (inpComponents[0].Equals("Guard"))
+                {
+                    guardId = Int32.Parse(inpComponents[1].Substring(1));
+                    eventType = Event.Begin;
+                }
+                else if (inpComponents[0].Equals("falls"))
+                {
+                    eventType = Event.FallAsleep;
+                }
+                else if (inpComponents[0].Equals("wakes"))
+                {
+                    eventType = Event.WakeUp;
+                }
+
+                if (inputs.TryGetValue(guardId, out var events))
+                {
+                    events.Add((entry.date, eventType));
+                }
+                else
+                {
+                    events = new List<(DateTime, Event)>()
+                    {
+                        (entry.date, eventType)
+                    };
+                    inputs.Add(guardId, events);
+                }
+            }
+
+            return inputs;
+        }
+    
+        public static Dictionary<int, List<(DateTime, Event)>> GetDayFourInput()
+        {
+            var inputFilePath = "./input/DayFour.txt";
+            return GetDayFourInput(File.ReadAllLines(inputFilePath));
         }
     }
 }
