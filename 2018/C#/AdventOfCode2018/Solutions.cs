@@ -6,6 +6,7 @@ namespace AdventOfCode2018
 {
     public static class Solutions
     {
+        #region Day1
         public static int DayOneOne(int[] inp) => inp.Sum();
 
         public static int DayOneTwo(int[] inp) 
@@ -34,7 +35,9 @@ namespace AdventOfCode2018
 
             return freq;
         }
-    
+        #endregion
+
+        #region Day2 
         public static int DayTwoOne(string[] inp)
         {
             var numTwo = 0;
@@ -65,6 +68,7 @@ namespace AdventOfCode2018
                 for (var j = i; j < inp.Count(); j++)
                 {
                     var diffPos = new HashSet<int>();
+
                     for (var x = 0; x < inp[i].Length; x++)
                     {
                         if (inp[i][x] != inp[j][x]) diffPos.Add(x);
@@ -77,5 +81,66 @@ namespace AdventOfCode2018
 
             return null;
         }
+        #endregion
+
+        #region Day3
+        public static int DayThreeOne(Dictionary<int, List<Tuple<int, int>>> inp)
+        {
+            var fabric = new int[1000, 1000];
+            var numOverlapped = 0;
+            var coordinates = inp.Values
+                                 .ToList()
+                                 .SelectMany(x => x)
+                                 .ToList();
+
+            foreach(var coordinate in coordinates)
+            {
+                if (fabric[coordinate.Item1, coordinate.Item2] == 1)
+                {
+                    numOverlapped++;
+                } 
+                fabric[coordinate.Item1, coordinate.Item2]++;
+            }
+
+            return numOverlapped;
+        }
+
+        public static int DayThreeTwo(Dictionary<int, List<Tuple<int, int>>> inp)
+        {
+            var fabric = new int[1000, 1000];
+            var idOverlaps = new Dictionary<int, bool>();
+
+            foreach (var id in inp.Keys)
+            {   
+                if (inp.TryGetValue(id, out var coordinates))
+                {
+                    var overlappedIds = new List<int>() { id };
+
+                    foreach (var coordinate in coordinates)
+                    {
+                        if (fabric[coordinate.Item1, coordinate.Item2] != 0)
+                        {
+                            overlappedIds.Add(fabric[coordinate.Item1, coordinate.Item2]);
+                        }
+                        else
+                        {
+                            fabric[coordinate.Item1, coordinate.Item2] = id;
+                        }
+                    }                   
+
+                    if (overlappedIds.Count > 1)
+                    {
+                        overlappedIds.ForEach(x => idOverlaps[x] = true);
+                    } 
+                    else
+                    {
+                        idOverlaps[overlappedIds.First()] = false;
+                    }
+                }
+            } 
+
+            return idOverlaps.Where(x => x.Value == false).Single().Key;
+        }
+        #endregion
     }
 }

@@ -80,5 +80,45 @@ namespace Tests
             Assert.AreEqual(expectedAns, actualAns); 
         }
         #endregion
+    
+        #region DayThreeOne
+        [Test]
+        [TestCase(new string[] 
+        {
+            "#1 @ 1,3: 4x4",
+            "#2 @ 3,1: 4x4",
+            "#3 @ 5,5: 2x2"
+        }, 4)]
+        public void DayThreeOne_SampleInput_ReturnResult(string[] inp, int expectedAns)
+        {
+            // Arrange
+            var puzzleInp = Inputs.GetDayThreeInput(inp);
+
+            // Act
+            var actualAns = Solutions.DayThreeOne(puzzleInp);
+
+            // Assert
+            Assert.AreEqual(expectedAns, actualAns);
+        }
+
+        [Test]
+        [TestCase(new string[] 
+        {
+            "#1 @ 1,3: 4x4",
+            "#2 @ 3,1: 4x4",
+            "#3 @ 5,5: 2x2"
+        }, 3)]
+        public void DayThreeTwo_SampleInput_ReturnResult(string[] inp, int expectedAns)
+        {
+            // Arrange
+            var puzzleInp = Inputs.GetDayThreeInput(inp);
+
+            // Act
+            var actualAns = Solutions.DayThreeTwo(puzzleInp);
+
+            // Assert
+            Assert.AreEqual(expectedAns, actualAns);
+        }
+        #endregion
     }
 }

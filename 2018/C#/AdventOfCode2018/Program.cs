@@ -78,6 +78,30 @@ namespace AdventOfCode2018
              Console.WriteLine($"Day Two Two Solution: {solution}");
         }
 
+        public static void DayThreeOne()
+        {
+            // Get Input
+            var inp = Inputs.GetDayThreeInput();
+
+             // Solve puzzle
+             var solution = Solutions.DayThreeOne(inp);
+
+             // Display Solution
+             Console.WriteLine($"Day Three One Solution: {solution}");
+        }
+
+        public static void DayThreeTwo()
+        {
+            // Get Input
+            var inp = Inputs.GetDayThreeInput();
+
+             // Solve puzzle
+             var solution = Solutions.DayThreeTwo(inp);
+
+             // Display Solution
+             Console.WriteLine($"Day Three Two Solution: {solution}");
+        }
+
         private static string GetMethodNameForDayAndPuzzle(string day, string puzzle)
         {
             var methodName = "Day";
@@ -89,6 +113,9 @@ namespace AdventOfCode2018
                     break;
                 case "2":
                     methodName = $"{methodName}Two";
+                    break;
+                case "3":
+                    methodName = $"{methodName}Three";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
