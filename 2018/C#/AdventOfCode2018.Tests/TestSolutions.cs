@@ -154,7 +154,9 @@ namespace Tests
             // Assert
             Assert.AreEqual(expectedAns, actualAns);
         }
+        #endregion
 
+        #region DayFourTwo
         [Test]
         [TestCase(new string[]
         {
@@ -186,6 +188,30 @@ namespace Tests
 
             // Assert
             Assert.AreEqual(expectedAns, actualAns);
+        }
+        #endregion
+
+        #region DayFiveOne
+        [Test]
+        [TestCase("dabAcCaCBAcCcaDA", 10)]
+        public void DayFiveOne_SampleInput_ReturnResults(string inp, int expectedAns)
+        {
+            // Act
+            var actualAns = Solutions.DayFiveOne(inp);
+
+            // Assert
+            Assert.AreEqual(expectedAns, actualAns); 
+        }
+
+        [Test]
+        [TestCase("dabAcCaCBAcCcaDA", 4)]
+        public void DayFiveTwo_SampleInput_ReturnResults(string inp, int expectedAns)
+        {
+            // Act
+            var actualAns = Solutions.DayFiveTwo(inp);
+
+            // Assert
+            Assert.AreEqual(expectedAns, actualAns); 
         }
         #endregion
     }

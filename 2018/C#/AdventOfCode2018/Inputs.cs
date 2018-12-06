@@ -119,5 +119,11 @@ namespace AdventOfCode2018
             var inputFilePath = "./input/DayFour.txt";
             return GetDayFourInput(File.ReadAllLines(inputFilePath));
         }
+
+        public static string GetDayFiveInput()
+        {
+            var inputFilePath = "./input/DayFive.txt";
+            return File.ReadAllText(inputFilePath);
+        }
     }
 }

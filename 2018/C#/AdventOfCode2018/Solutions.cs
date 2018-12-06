@@ -222,5 +222,59 @@ namespace AdventOfCode2018
             return ans.Item1 * ans.Item3.Item1;
         }
         #endregion
+
+        #region Day5
+        public static int DayFiveOne(string inp)
+        {
+            var polymer = inp;
+            var doneReacting = false;
+            var i = 0;
+
+            while (!doneReacting)
+            {
+                var first = polymer[i];
+                var second = polymer[i + 1];
+
+                if ( (Char.ToLower(first) == Char.ToLower(second)) && 
+                     ((Char.IsUpper(first) && Char.IsLower(second)) || 
+                     (Char.IsLower(first) && Char.IsUpper(second)))
+                    )
+                {
+                    polymer = polymer.Remove(i, 2);
+                    i = i > 0 ? i - 1 : 0;
+                }
+                else
+                {
+                    i++;
+                }
+                
+                if (i >= polymer.Length - 1)
+                {
+                    doneReacting = true;
+                }
+            }
+
+            return polymer.Length;
+        }
+
+        public static int DayFiveTwo(string inp)
+        {
+            var uniqueUnits = inp.ToCharArray()
+                                 .Select(x => Char.ToLower(x) + "")
+                                 .Distinct()
+                                 .ToList();
+            var possibleAns = new List<int>();
+
+            uniqueUnits.ForEach(unit => 
+            {  
+                var polymer = inp; 
+                polymer = polymer.Replace(unit.ToUpper(), String.Empty);
+                polymer = polymer.Replace(unit.ToLower(), String.Empty);
+                possibleAns.Add(DayFiveOne(polymer));
+            });
+
+            return possibleAns.Min();
+        }
+        #endregion
     }
 }
