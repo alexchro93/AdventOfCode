@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CommandLineParser" Version="2.4.3" />
+      <PackageReference Include="LaYumba.Functional" Version="0.9.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Inputs\DayOne.txt" />
+      <Content Include="Inputs\DayOne.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Inputs\DayTwo.txt.cs" />
+    </ItemGroup>
+
+</Project>
