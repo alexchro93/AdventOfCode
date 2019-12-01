@@ -2,7 +2,7 @@
 
 ## Run
 
-To run the sample program, ensure you have the [.NET Core 3.0 SDK installed][1].  I'm using version
+To run the sample program, ensure you have the [.NET Core 3.0 SDK][1] installed.  I'm using version
 3.0.101.  Then, cd in to `src/AdventOfCode` and run `dotnet run -- -d (day) -p (problem)`
 where day is in the range [1, 25] and problem is in the range [1, 2].  
 
@@ -22,7 +22,7 @@ dotnet run -- -d 1 -p 1
 
 ## Test
 
-To run the test suite, ensure you have the [.NET Core 3.0 SDK installed][1].  I'm using version 
+To run the test suite, ensure you have the [.NET Core 3.0 SDK[1] installed.  I'm using version 
 3.0.101.  Then, cd in to `src/AdventOfCodeTests` and run `dotnet test`.  You can add an optional
 filter to this command in order to run tests for a specific day.
 
