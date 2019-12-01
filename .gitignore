@@ -1,3 +1,5 @@
 bin/
 obj/
 2018/C#/.vscode/
+.idea
+.DS_Store
