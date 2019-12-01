@@ -7,6 +7,7 @@ using NUnit.Framework;
 namespace AdventOfCodeTests
 {
    [TestFixture]
+   [Category("DayOne")]
    public class DayOneTests
    {
       [TestCaseSource(typeof(TestData), nameof(TestData.ProblemOneData))]

@@ -11,7 +11,7 @@ namespace AdventOfCode
    {
       public enum Day
       {
-         One = 1,
+         One = 1
       }
 
       public enum Problem
