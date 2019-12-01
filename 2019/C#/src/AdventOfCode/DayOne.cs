@@ -6,7 +6,7 @@ namespace AdventOfCode
    public static class DayOne
    {
       public static int ProblemOne(IEnumerable<int> inp)
-         => inp.Select(w => w / 3 - 2).Sum();
+         => inp.Sum(w => w / 3 - 2);
 
       public static int ProblemTwo(IEnumerable<int> inp)
       {
@@ -16,7 +16,7 @@ namespace AdventOfCode
             if (requiredFuel <= 0) return 0;
             return requiredFuel + CalcWeight(requiredFuel);
          }
-         return inp.Select(CalcWeight).Sum();
+         return inp.Sum(CalcWeight);
       }
    }
 }
