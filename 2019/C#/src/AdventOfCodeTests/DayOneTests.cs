@@ -2,6 +2,8 @@ using System.Collections;
 using AdventOfCode;
 using NUnit.Framework;
 
+// ReSharper disable UnusedMember.Local
+
 namespace AdventOfCodeTests
 {
    [TestFixture]
@@ -25,6 +27,7 @@ namespace AdventOfCodeTests
                yield return new TestCaseData(new[] {14}).Returns(2);
                yield return new TestCaseData(new[] {1969}).Returns(654);
                yield return new TestCaseData(new[] {100756}).Returns(33583);
+               yield return new TestCaseData(new[] {12, 14, 1969, 100756}).Returns(34241);
             }
          }
 
@@ -32,9 +35,11 @@ namespace AdventOfCodeTests
          {
             get
             {
+               yield return new TestCaseData(new[] {12}).Returns(2);
                yield return new TestCaseData(new[] {14}).Returns(2);
                yield return new TestCaseData(new[] {1969}).Returns(966);
                yield return new TestCaseData(new[] {100756}).Returns(50346);
+               yield return new TestCaseData(new[] {12, 14, 1969, 100756}).Returns(51316);
             }
          }
       }
