@@ -2,13 +2,16 @@
 using System.Reflection;
 using CommandLine;
 
+// ReSharper disable UnusedMember.Local
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+
 namespace AdventOfCode
 {
-   class Program
+   internal class Program
    {
       public enum Day
       {
-         One = 1
+         One = 1,
       }
 
       public enum Problem
@@ -17,54 +20,35 @@ namespace AdventOfCode
          Two = 2
       }
 
-      static void Main(string[] args)
+      private static void Main(string[] args)
          => Parser.Default.ParseArguments<Options>(args)
             .WithParsed(o =>
             {
-               var methodName = "Day";
-
-               switch (o.Day)
-               {
-                  case Day.One:
-                     methodName += nameof(Day.One);
-                     break;
-               }
-
-               switch (o.Problem)
-               {
-                  case Problem.One:
-                     methodName += nameof(Problem.One);
-                     break;
-                  case Problem.Two:
-                     methodName += nameof(Problem.Two);
-                     break;
-               }
-
-               typeof(Program)
+               var methodName = $"Day{o.Day}{o.Problem}";
+               var result = typeof(Program)
                   .GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Static)
-                  ?.Invoke(null, null);
+                  ?.Invoke(null, null) ?? "not implemented";
+               Console.WriteLine($"Day {o.Day} Problem {o.Problem} Result - {result}.");
             });
 
-      private static void DayOneOne()
+      private static int DayOneOne()
       {
          var inp = InputProvider.DayOne();
-         var result = DayOne.ProblemOne(inp);
-         Console.WriteLine($"Day One Problem One Result - {result}");
+         return DayOne.ProblemOne(inp);
       }
 
-      private static void DayOneTwo()
+      private static int DayOneTwo()
       {
          var inp = InputProvider.DayOne();
-         var result = DayOne.ProblemTwo(inp);
-         Console.WriteLine($"Day One Problem Two Result - {result}");
+         return DayOne.ProblemTwo(inp);
       }
 
       public class Options
       {
-         [Option('d', "day", Required = true, HelpText = "Day to solve problem")]
+         [Option('d', "day", Required = true, HelpText = "Day to solve problem [1, 25]")]
          public Day Day { get; set; }
 
-         [Option('p', "problem", Required = true, HelpText = "1 (Problem One) or 2 (Problem 2")]
+         [Option('p', "problem", Required = true, HelpText = "Problem to solve [1, 2]")]
          public Problem Problem { get; set; }
       }
    }
