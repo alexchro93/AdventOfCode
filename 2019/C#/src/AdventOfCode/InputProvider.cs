@@ -22,7 +22,7 @@ namespace AdventOfCode
 
         public static int[] DayOne() =>
             File.ReadAllLines(_dayOnePath)
-                .Select(x => int.Parse(x))
+                .Select(int.Parse)
                 .ToArray();
     }
 }
