@@ -2,21 +2,22 @@ using System.Collections;
 using AdventOfCode;
 using NUnit.Framework;
 
+// ReSharper disable once UnusedMember.Local
+
 namespace AdventOfCodeTests
 {
    [TestFixture]
    [Category("DayTwo")]
    public class DayTwoTests
    {
+      [TestCaseSource(typeof(TestData), nameof(TestData.ProblemOneData))]
+      public int[] ProblemOne_ValidInput_ReturnsCorrectResult(int[] inp) =>
+         DayTwo.ProblemOne(inp);
+      
       private class TestData
       {
-         [TestCaseSource(typeof(TestData), nameof(ProblemOneData))]
-         public int[] ProblemOne_ValidInput_ReturnsCorrectResult(int[] inp) =>
-            DayTwo.ProblemOne(inp);
-
-         private static IEnumerable ProblemOneData
+         public static IEnumerable ProblemOneData
          {
-            // ReSharper disable once UnusedMember.Local
             get
             {
                yield return new TestCaseData(new[] {1,0,0,0,99})
