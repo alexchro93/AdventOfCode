@@ -15,6 +15,7 @@ dotnet run -- -d 1 -p 1
 /**
 *
 * Expected output:
+*
 * Day One Problem One Result - 3246455.
 *
 **/
@@ -22,7 +23,7 @@ dotnet run -- -d 1 -p 1
 
 ## Test
 
-To run the test suite, ensure you have the [.NET Core 3.0 SDK[1] installed.  I'm using version 
+To run the test suite, ensure you have the [.NET Core 3.0 SDK][1] installed.  I'm using version 
 3.0.101.  Then, cd in to `src/AdventOfCodeTests` and run `dotnet test`.  You can add an optional
 filter to this command in order to run tests for a specific day.
 
@@ -33,6 +34,7 @@ cd src/AdventOfCodeTests
 dotnet test --filter TestCategory=DayOne
 
 /**
+* Expected output:
 *
 * Test run for /Users/alex/Projects/AdventOfCode/2019/C#/src/AdventOfCodeTests/bin/Debug/netcoreapp3.0/AdventOfCodeTests.dll(.NETCoreApp,Version=v3.0)
 * Microsoft (R) Test Execution Command Line Tool Version 16.3.0
