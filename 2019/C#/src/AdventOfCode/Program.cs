@@ -11,7 +11,8 @@ namespace AdventOfCode
    {
       public enum Day
       {
-         One = 1
+         One = 1,
+         Two = 2
       }
 
       public enum Problem
@@ -41,6 +42,20 @@ namespace AdventOfCode
       {
          var inp = InputProvider.DayOne();
          return DayOne.ProblemTwo(inp);
+      }
+
+      private static int DayTwoOne()
+      {
+         var inp = InputProvider.DayTwo();
+         inp[1] = 12;
+         inp[2] = 2;
+         return DayTwo.ProblemOne(inp)[0];
+      }
+      
+      private static int DayTwoTwo()
+      {
+         var inp = InputProvider.DayTwo();
+         return DayTwo.ProblemTwo(inp, 19690720);
       }
 
       public class Options

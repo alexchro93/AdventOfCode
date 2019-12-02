@@ -12,6 +12,9 @@ namespace AdventOfCode
         private static readonly string _dayOnePath = 
             _rootDir + "DayOne.txt";
 
+        private static readonly string _dayTwoPath = 
+            _rootDir + "DayTwo.txt";
+        
         static InputProvider()
         {
             Debug.Assert(Directory.Exists(_rootDir), 
@@ -24,5 +27,15 @@ namespace AdventOfCode
             File.ReadAllLines(_dayOnePath)
                 .Select(int.Parse)
                 .ToArray();
+
+        public static int[] DayTwo()
+        {
+           var rawInp = File.ReadAllLines(_dayTwoPath)
+              .SelectMany(s => s.Split(","))
+              .Select(int.Parse)
+              .ToArray();
+
+           return rawInp;
+        }
     }
 }
