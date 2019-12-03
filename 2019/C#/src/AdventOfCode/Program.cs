@@ -12,7 +12,8 @@ namespace AdventOfCode
       public enum Day
       {
          One = 1,
-         Two = 2
+         Two = 2,
+         Three = 3
       }
 
       public enum Problem
@@ -50,12 +51,24 @@ namespace AdventOfCode
          return DayTwo.ProblemOne(inp, 12, 2)[0];
       }
       
-      private static int? DayTwoTwo()
+      private static int DayTwoTwo()
       {
          var inp = InputProvider.DayTwo();
          return DayTwo.ProblemTwo(inp, 19690720);
       }
 
+      private static int DayThreeOne()
+      {
+         var inp = InputProvider.DayThree();
+         return DayThree.ProblemOne(inp.Item1, inp.Item2);
+      }
+      
+      private static int DayThreeTwo()
+      {
+         var inp = InputProvider.DayThree();
+         return DayThree.ProblemTwo(inp.Item1, inp.Item2);
+      }
+      
       public class Options
       {
          [Option('d', "day", Required = true, HelpText = "Day to solve problem [1, 25]")]

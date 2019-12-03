@@ -32,7 +32,7 @@ namespace AdventOfCode
          return result;
       }
 
-      public static int? ProblemTwo(int[] inp, int target)
+      public static int ProblemTwo(int[] inp, int target)
       {
          for (var noun = 0; noun < 99; noun++)
          {
@@ -44,7 +44,7 @@ namespace AdventOfCode
             }
          }
          throw new ProblemNotSolvedException(
-            $"couldn't find noun or verb for target - {target}");
+            $"D2P2: couldn't find noun or verb for target -  {target}");
       }
    }
 }
