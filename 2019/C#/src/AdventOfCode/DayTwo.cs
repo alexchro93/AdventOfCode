@@ -1,13 +1,18 @@
 using System;
+using AdventOfCode.Exceptions;
 
 namespace AdventOfCode
 {
    public static class DayTwo
    {
-      public static int[] ProblemOne(int[] inp)
+      public static int[] ProblemOne(
+         int[] inp, int? noun = null, int? verb = null)
       {
          var result = new int[inp.Length];
          Array.Copy(inp, result, inp.Length);
+
+         if (noun.HasValue) result[1] = noun.Value;
+         if (verb.HasValue) result[2] = verb.Value;
          
          for (var i = 0; i < inp.Length; i += 4)
          {
@@ -20,28 +25,26 @@ namespace AdventOfCode
             
             if (op == 1)
                result[resultIndex] = result[opOneIndex] + result[opTwoIndex];
-            else if (op == 2) 
+            if (op == 2) 
                result[resultIndex] = result[opOneIndex] * result[opTwoIndex];
          }
-
+         
          return result;
       }
 
-      public static int ProblemTwo(int[] inp, int target)
+      public static int? ProblemTwo(int[] inp, int target)
       {
          for (var noun = 0; noun < 99; noun++)
          {
             for (var verb = 0; verb < 99; verb++)
             {
-               inp[1] = noun;
-               inp[2] = verb;
-               var result = ProblemOne(inp);
+               var result = ProblemOne(inp, noun, verb);
                if (result[0] == target)
                   return 100 * noun + verb;
             }
          }
-
-         return -1;
+         throw new ProblemNotSolvedException(
+            $"couldn't find noun or verb for target - {target}");
       }
    }
 }

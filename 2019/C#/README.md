@@ -34,6 +34,7 @@ cd src/AdventOfCodeTests
 dotnet test --filter TestCategory=DayOne
 
 /**
+*
 * Expected output:
 *
 * Test run for /Users/alex/Projects/AdventOfCode/2019/C#/src/AdventOfCodeTests/bin/Debug/netcoreapp3.0/AdventOfCodeTests.dll(.NETCoreApp,Version=v3.0)

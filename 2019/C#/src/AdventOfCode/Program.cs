@@ -47,12 +47,10 @@ namespace AdventOfCode
       private static int DayTwoOne()
       {
          var inp = InputProvider.DayTwo();
-         inp[1] = 12;
-         inp[2] = 2;
-         return DayTwo.ProblemOne(inp)[0];
+         return DayTwo.ProblemOne(inp, 12, 2)[0];
       }
       
-      private static int DayTwoTwo()
+      private static int? DayTwoTwo()
       {
          var inp = InputProvider.DayTwo();
          return DayTwo.ProblemTwo(inp, 19690720);

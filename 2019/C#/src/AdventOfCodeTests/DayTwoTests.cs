@@ -11,8 +11,8 @@ namespace AdventOfCodeTests
    public class DayTwoTests
    {
       [TestCaseSource(typeof(TestData), nameof(TestData.ProblemOneData))]
-      public int[] ProblemOne_ValidInput_ReturnsCorrectResult(int[] inp) =>
-         DayTwo.ProblemOne(inp);
+      public int[] ProblemOne_ValidInput_ReturnsCorrectResult(int[] inp) 
+         => DayTwo.ProblemOne(inp);
       
       private class TestData
       {
