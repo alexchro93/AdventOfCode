@@ -54,5 +54,13 @@ namespace AdventOfCode
 
            return (lines[0], lines[1]);
         }
+
+        public static List<string> DayFour()
+        {
+           var inp = new List<string>(919123 - 387638);
+           for (var i = 387638; i <= 919123; i++)
+              inp.Add(i.ToString());
+           return inp;
+        }
     }
 }
