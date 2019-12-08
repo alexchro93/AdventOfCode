@@ -27,6 +27,9 @@ namespace AdventOfCode
         
         private static readonly string _daySevenPath = 
             _rootDir + "DaySeven.txt";
+
+        private static readonly string _dayEightPath = 
+            _rootDir + "DayEight.txt";
         
         static InputProvider()
         {
@@ -44,6 +47,8 @@ namespace AdventOfCode
                 $"Day six test data not available: {_daySixPath}");
             Debug.Assert(File.Exists(_daySevenPath), 
                 $"Day seven test data not available: {_daySevenPath}");
+            Debug.Assert(File.Exists(_dayEightPath), 
+                $"Day eight test data not available: {_dayEightPath}");
         }
 
         public static int[] DayOne() =>
@@ -89,10 +94,16 @@ namespace AdventOfCode
               })
               .ToList();
         
-        public static int [] DaySeven() =>
+        public static int[] DaySeven() =>
            File.ReadAllLines(_daySevenPath)
               .SelectMany(s => s.Split(","))
               .Select(int.Parse)
               .ToArray();
+
+        public static int[] DayEight() =>
+         File.ReadAllLines(_dayEightPath)
+            .Aggregate((b, a) => b + a)
+            .Select(c => (int) char.GetNumericValue(c))
+            .ToArray();
     }
 }

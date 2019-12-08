@@ -17,7 +17,8 @@ namespace AdventOfCode
          Four = 4,
          Five = 5,
          Six = 6,
-         Seven = 7
+         Seven = 7,
+         Eight = 8
       }
 
       public enum Problem
@@ -34,7 +35,7 @@ namespace AdventOfCode
                var result = typeof(Program)
                   .GetMethod(methodName, BindingFlags.NonPublic | BindingFlags.Static)
                   ?.Invoke(null, null) ?? "not implemented";
-               Console.WriteLine($"Day {o.Day} Problem {o.Problem} Result - {result}.");
+               Console.WriteLine($"Day {o.Day} Problem {o.Problem} Result - {result}");
             });
 
       private static int DayOneOne()
@@ -120,7 +121,19 @@ namespace AdventOfCode
          var inp = InputProvider.DaySeven();
          return DaySeven.ProblemTwo(inp);
       }
-      
+
+      private static int DayEightOne()
+      {
+         var inp = InputProvider.DayEight();
+         return DayEight.ProblemOne(inp);
+      }
+
+      private static string DayEightTwo()
+      {
+         var inp = InputProvider.DayEight();
+         return DayEight.ProblemTwo(inp);
+      }
+
       public class Options
       {
          [Option('d', "day", Required = true, HelpText = "Day to solve problem [1, 25]")]
