@@ -18,7 +18,9 @@ namespace AdventOfCode
          Five = 5,
          Six = 6,
          Seven = 7,
-         Eight = 8
+         Eight = 8,
+         Nine = 9,
+         Ten = 10
       }
 
       public enum Problem
@@ -133,6 +135,24 @@ namespace AdventOfCode
          var inp = InputProvider.DayEight();
          return DayEight.ProblemTwo(inp);
       }
+
+      private static long DayNineOne()
+      {
+         var inp = InputProvider.DayNine();
+         return DayNine.ProblemOne(inp);
+      }
+
+      private static long DayNineTwo()
+      {
+         var inp = InputProvider.DayNine();
+         return DayNine.ProblemTwo(inp);
+      }
+
+      private static int DayTenOne()
+      {
+         var inp = InputProvider.DayTen();
+         return DayTen.ProblemOne(inp);
+      }      
 
       public class Options
       {

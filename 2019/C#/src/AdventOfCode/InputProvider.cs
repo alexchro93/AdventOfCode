@@ -30,6 +30,12 @@ namespace AdventOfCode
 
         private static readonly string _dayEightPath = 
             _rootDir + "DayEight.txt";
+
+        private static readonly string _dayNinePath = 
+            _rootDir + "DayNine.txt";
+
+        private static readonly string _dayTenPath = 
+            _rootDir + "DayTen.txt";
         
         static InputProvider()
         {
@@ -49,6 +55,10 @@ namespace AdventOfCode
                 $"Day seven test data not available: {_daySevenPath}");
             Debug.Assert(File.Exists(_dayEightPath), 
                 $"Day eight test data not available: {_dayEightPath}");
+            Debug.Assert(File.Exists(_dayNinePath), 
+                $"Day nine test data not available: {_dayNinePath}");
+            Debug.Assert(File.Exists(_dayTenPath), 
+                $"Day ten test data not available: {_dayTenPath}");
         }
 
         public static int[] DayOne() =>
@@ -100,10 +110,31 @@ namespace AdventOfCode
               .Select(int.Parse)
               .ToArray();
 
-        public static int[] DayEight() =>
-         File.ReadAllLines(_dayEightPath)
-            .Aggregate((b, a) => b + a)
-            .Select(c => (int) char.GetNumericValue(c))
-            .ToArray();
+         public static int[] DayEight() =>
+            File.ReadAllLines(_dayEightPath)
+               .Aggregate((b, a) => b + a)
+               .Select(c => (int) char.GetNumericValue(c))
+               .ToArray();
+
+         public static long[] DayNine() =>
+            File.ReadAllLines(_dayNinePath)
+               .SelectMany(x => x.Split(","))
+               .Select(long.Parse)
+               .ToArray();
+
+         public static HashSet<(int x, int y)> DayTen()
+         {
+            var ret = new HashSet<(int x, int y)>();
+            var lines = File.ReadAllLines(_dayTenPath);
+            for (var i = 0; i < lines.Length; i++)
+            {
+               var chars = lines[i].ToCharArray();
+               for (var j = 0; j < chars.Length; j++)
+               {
+                  if (chars[j] == '#') ret.Add((j, i));
+               }
+            }
+            return ret;
+         }
     }
 }
