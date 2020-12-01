@@ -2,7 +2,7 @@
 // Imports
 //
 
-#load "Solutions.fs"
+#load "DayOne.fs"
 
 //
 // References
