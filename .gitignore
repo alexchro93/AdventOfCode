@@ -4,3 +4,4 @@ obj/
 .idea
 .DS_Store
 2019/C#/src/AdventOfCode.sln.DotSettings.user
+.vs
