@@ -20,10 +20,7 @@ module DayTwo =
         let validLine (line: Line) : bool = 
             let first = (line.Psd.Chars (line.Min - 1)) = line.Chr
             let second = (line.Psd.Chars (line.Max - 1)) = line.Chr 
-
-            if (first && second) then false
-            elif (first || second) then true
-            else false
+            first <> second
 
         x |> List.filter validLine |> List.length
             
