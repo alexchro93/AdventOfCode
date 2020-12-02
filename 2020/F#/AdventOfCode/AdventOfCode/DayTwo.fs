@@ -3,7 +3,6 @@
 open System.Linq
 
 module DayTwo = 
-
     type Line = 
         {   Min: int;
             Max: int;
