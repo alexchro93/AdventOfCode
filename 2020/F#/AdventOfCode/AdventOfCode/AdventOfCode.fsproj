@@ -6,15 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Input\DayTwo.txt" />
     <Content Include="Input\DayOne.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Compile Include="DayOne.fs" />
+    <Compile Include="DayTwo.fs" />
     <Compile Include="Tests.fs" />
     <None Include="Runners.fsx" />
   </ItemGroup>
-
-  <ItemGroup />
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />
