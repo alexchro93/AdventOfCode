@@ -62,3 +62,51 @@ type Tests() =
     [<TestCaseSource("TwoTwoInp")>]
     member __.DayTwoTwo(x) = Solutions.DayTwo.Two x
 
+
+    // Day Three Part One
+
+    static member ThreeOneInp = [
+        TestCaseData([
+            "..##.......";
+            "#...#...#..";
+            ".#....#..#.";
+            "..#.#...#.#";
+            ".#...##..#.";
+            "..#.##.....";
+            ".#.#.#....#";
+            ".#........#";
+            "#.##...#...";
+            "#...##....#";
+            ".#..#...#.#" 
+        ])
+    ]
+
+    [<TestCaseSource("ThreeOneInp")>]
+    member __.DayThreeOne(x) = 
+        // Arrange
+        let slope : Solutions.DayThree.Slope = { Right = 3; Down = 1 }
+
+        // Act
+        let ans = Solutions.DayThree.One x slope
+        
+        // Assert
+        Assert.AreEqual(7u, ans)
+
+    // Day Three Part Two
+
+    [<TestCaseSource("ThreeOneInp")>]
+    member __.DayThreeTwo(x) = 
+        // Arrange
+        let slopes : Solutions.DayThree.Slope list = 
+            [ { Right = 1; Down = 1 };
+              { Right = 3; Down = 1 };
+              { Right = 5; Down = 1 };
+              { Right = 7; Down = 1 };
+              { Right = 1; Down = 2 } ]
+
+        // Act
+        let ans = Solutions.DayThree.Two x slopes
+
+        // Assert
+        Assert.AreEqual(336u, ans)
+
