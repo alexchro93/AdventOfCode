@@ -21,6 +21,6 @@ module DayThree =
               |> uint
 
     let Two (lines: string list) (slopes: Slope list) : uint = 
-        let trees = slopes |> List.map (fun s -> One lines s)
-        trees |> List.fold (fun acc c -> acc * c) 1u
+        slopes |> List.map (fun s -> One lines s)
+               |> List.fold (fun acc c -> acc * c) 1u
 
