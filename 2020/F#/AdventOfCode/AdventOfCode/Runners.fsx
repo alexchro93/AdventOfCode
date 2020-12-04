@@ -5,6 +5,7 @@
 #load "DayOne.fs"
 #load "DayTwo.fs"
 #load "DayThree.fs"
+#load "DayFour.fs"
 
 //
 // References
@@ -63,4 +64,33 @@ let inpThree = rawThree
 
 let ansThreeOne = DayThree.One inpThree (slopes.Item 1)
 let ansThreeTwo = DayThree.Two inpThree slopes
+
+//
+// Day Four
+//
+
+let comb (map: Map<string, string>) (s: string) : Map<string, string> =
+    let inp = 
+        s.Split [| ' ' |] 
+        |> Array.toList
+        |> List.map (fun (x: string) -> x.Split [| ':' |]) 
+        |> List.map (fun x -> x.[0], x.[1])
+    let rec add (map: Map<string, string>) lst = 
+        match lst with
+        | [] -> map
+        | s::xs -> add (map.Add s) xs
+    add map inp
+
+let rawFour = Path.Combine(__SOURCE_DIRECTORY__, "Input\DayFour.txt") |> readLines 
+let inpFour = 
+    [ let mutable i = 0
+      for x in rawFour do
+      if x = "" then i <- i + 1 else yield i, x ]
+    |> List.groupBy fst
+    |> List.map snd
+    |> List.map (List.map snd)
+    |> List.map (List.fold comb Map.empty<string, string>)
+
+let ansFourOne = DayFour.One inpFour
+let ansFourTwo = DayFour.Two inpFour
 
