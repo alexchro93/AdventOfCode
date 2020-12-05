@@ -3,7 +3,7 @@
 #nowarn "25"
 
 module DayFive = 
-    let seatId (x: string) =
+    let seatId x =
         let rec calcId chars row col =
             match chars with
             | [] -> (row * 8) + col
