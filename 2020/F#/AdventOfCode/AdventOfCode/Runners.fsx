@@ -8,6 +8,7 @@
 #load "DayFour.fs"
 #load "DayFive.fs"
 #load "DaySix.fs"
+#load "DaySeven.fs"
 
 //
 // References
@@ -121,3 +122,32 @@ let inpSix =
 
 let ansSixOne = DaySix.One inpSix
 let ansSixTwo = DaySix.Two inpSix
+
+// 
+// Day Six
+// 
+
+let crtItem (inp: string) : string * string list =
+    let m = Regex.Match(inp, @"^(?<Name>.+ bag)s contain (?<Content>.+)$")
+    let name = (m.Groups.Item "Name").Value
+    let content = (m.Groups.Item "Content").Value
+                    .TrimEnd('.')
+                    .Split([| ", " |], System.StringSplitOptions.None)
+                    |> Array.toList
+    name, content 
+
+let crtCnt (inp: string * string list) : string * Map<string, int> =
+    let cnt = (snd inp) |> List.map (fun i -> Regex.Match(i, @"^(?<Amt>\d+) (?<Name>.+[^s])s?$"))
+                        |> List.where (fun i -> i.Success)
+                        |> List.map (fun i -> (i.Groups.Item "Name").Value, (i.Groups.Item "Amt").Value |> int)
+                        |> Map.ofList
+    (fst inp), cnt
+
+let rawSeven = Path.Combine(__SOURCE_DIRECTORY__, "Input\DaySeven.txt") |> readLines 
+let inpSeven = rawSeven |> List.map crtItem 
+                        |> List.map crtCnt
+                        |> Map.ofList
+
+let ansSevenOne = DaySeven.One inpSeven "shiny gold bag"
+let ansSevenTwo = DaySeven.Two inpSeven "shiny gold bag"
+
