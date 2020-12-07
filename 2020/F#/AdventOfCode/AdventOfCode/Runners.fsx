@@ -7,6 +7,7 @@
 #load "DayThree.fs"
 #load "DayFour.fs"
 #load "DayFive.fs"
+#load "DaySix.fs"
 
 //
 // References
@@ -104,3 +105,19 @@ let inpFive = rawFive
 
 let ansFiveOne = DayFive.One inpFive
 let ansFiveTwo = DayFive.Two inpFive
+
+// 
+// Day Six
+// 
+
+let rawSix = Path.Combine(__SOURCE_DIRECTORY__, "Input\DaySix.txt") |> readLines 
+let inpSix =
+    [ let mutable i = 0
+      for x in rawSix do
+      if x = "" then i <- i + 1 else yield i, x ]
+    |> List.groupBy fst
+    |> List.map snd
+    |> List.map (List.fold (fun acc x -> (snd x)::acc ) [])
+
+let ansSixOne = DaySix.One inpSix
+let ansSixTwo = DaySix.Two inpSix
