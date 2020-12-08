@@ -9,6 +9,7 @@
 #load "DayFive.fs"
 #load "DaySix.fs"
 #load "DaySeven.fs"
+#load "DayEight.fs"
 
 //
 // References
@@ -124,7 +125,7 @@ let ansSixOne = DaySix.One inpSix
 let ansSixTwo = DaySix.Two inpSix
 
 // 
-// Day Six
+// Day Seven
 // 
 
 let crtItem (inp: string) : string * string list =
@@ -151,3 +152,14 @@ let inpSeven = rawSeven |> List.map crtItem
 let ansSevenOne = DaySeven.One inpSeven "shiny gold bag"
 let ansSevenTwo = DaySeven.Two inpSeven "shiny gold bag"
 
+// 
+// Day Eight
+// 
+
+let rawEight = Path.Combine(__SOURCE_DIRECTORY__, "Input\DayEight.txt") |> readLines 
+let inpEight = rawEight 
+                |> List.map (fun i -> i.Split(' '))
+                |> List.mapi(fun id prts -> { Id = id; Op = prts.[0]; Arg = prts.[1] |> int } : DayEight.Inst )
+
+let ansEightOne = DayEight.One inpEight
+let ansEightTwo = DayEight.Two inpEight
