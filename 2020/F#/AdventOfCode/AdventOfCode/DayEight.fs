@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode.Solutions
 
+#nowarn "25"
+
 module DayEight =
     type Inst  = { Id: int; Op: string; Arg: int }
 

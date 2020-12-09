@@ -10,6 +10,7 @@
 #load "DaySix.fs"
 #load "DaySeven.fs"
 #load "DayEight.fs"
+#load "DayNine.fs"
 
 //
 // References
@@ -163,3 +164,13 @@ let inpEight = rawEight
 
 let ansEightOne = DayEight.One inpEight
 let ansEightTwo = DayEight.Two inpEight
+
+// 
+// Day Nine
+// 
+
+let rawNine = Path.Combine(__SOURCE_DIRECTORY__, "Input\DayNine.txt") |> readLines 
+let inpNine = rawNine |> List.map uint64
+
+let ansNineONe = DayNine.One inpNine 25
+let ansNineTwo = DayNine.Two inpNine 25

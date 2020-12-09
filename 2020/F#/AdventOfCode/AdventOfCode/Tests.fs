@@ -110,3 +110,63 @@ type Tests() =
         // Assert
         Assert.AreEqual(336u, ans)
 
+    // Day Nine Part One
+
+    static member NineOneInp = [
+        TestCaseData([
+            35UL;
+            20UL;
+            15UL;
+            25UL;
+            47UL;
+            40UL;
+            62UL;
+            55UL;
+            65UL;
+            95UL;
+            102UL;
+            117UL;
+            150UL;
+            182UL;
+            127UL;
+            219UL;
+            299UL;
+            277UL;
+            309UL;
+            576UL;
+        ] : uint64 list).Returns(127)
+    ]
+
+    [<TestCaseSource("NineOneInp")>]
+     member __.DayNineOne(x) = Solutions.DayNine.One x 5
+
+    // Day Nine Part One
+
+    static member NineTwoInp = [
+        TestCaseData([
+            35UL;
+            20UL;
+            15UL;
+            25UL;
+            47UL;
+            40UL;
+            62UL;
+            55UL;
+            65UL;
+            95UL;
+            102UL;
+            117UL;
+            150UL;
+            182UL;
+            127UL;
+            219UL;
+            299UL;
+            277UL;
+            309UL;
+            576UL;
+        ] : uint64 list).Returns(62)
+    ]
+
+    [<TestCaseSource("NineTwoInp")>]
+    member __.DayNineTwo(x) = Solutions.DayNine.Two x 5
+
