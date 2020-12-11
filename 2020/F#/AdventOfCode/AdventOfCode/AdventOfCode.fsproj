@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Input\DayEleven.txt" />
+    <Content Include="Input\DayTen.txt" />
     <Content Include="Input\DayNine.txt" />
     <Content Include="Input\DayEight.txt" />
     <Content Include="Input\DaySeven.txt" />
@@ -26,6 +28,8 @@
     <Compile Include="DaySeven.fs" />
     <Compile Include="DayEight.fs" />
     <Compile Include="DayNine.fs" />
+    <Compile Include="DayTen.fs" />
+    <Compile Include="DayEleven.fs" />
     <Compile Include="Tests.fs" />
     <None Include="Runners.fsx" />
   </ItemGroup>

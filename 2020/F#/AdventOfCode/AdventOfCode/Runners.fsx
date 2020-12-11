@@ -1,18 +1,4 @@
 ﻿//
-// Imports
-//
-
-#load "DayOne.fs"
-#load "DayTwo.fs"
-#load "DayThree.fs"
-#load "DayFour.fs"
-#load "DayFive.fs"
-#load "DaySix.fs"
-#load "DaySeven.fs"
-#load "DayEight.fs"
-#load "DayNine.fs"
-
-//
 // References
 //
 
@@ -30,6 +16,8 @@ let readLines path = File.ReadAllLines path |> Array.toList
 // Day One
 //
 
+#load "DayOne.fs"
+
 let rawOne = Path.Combine(__SOURCE_DIRECTORY__, "Input\DayOne.txt") |> readLines 
 let inpOne = rawOne |> List.map System.Int32.Parse
 
@@ -39,6 +27,8 @@ let ansOneTwo = DayOne.Two inpOne
 //
 // Day Two
 //
+
+#load "DayTwo.fs"
 
 let getTwo (x: string) : DayTwo.Line =
     let m = Regex.Match(x, @"(?<Min>\d+)-(?<Max>\d+)\s{1}(?<Chr>\w{1})[:]{1}\s{1}(?<Psd>\w+)")
@@ -57,6 +47,8 @@ let ansTwoTwo = DayTwo.Two inpTwo
 // Day Three
 //
 
+#load "DayThree.fs"
+
 let slopes : DayThree.Slope list = 
     [ { Right = 1; Down = 1 };
       { Right = 3; Down = 1 };
@@ -73,6 +65,8 @@ let ansThreeTwo = DayThree.Two inpThree slopes
 //
 // Day Four
 //
+
+#load "DayFour.fs"
 
 let comb (map: Map<string, string>) (s: string) : Map<string, string> =
     let inp = 
@@ -103,6 +97,8 @@ let ansFourTwo = DayFour.Two inpFour
 // Day Five
 //
 
+#load "DayFive.fs"
+
 let rawFive = Path.Combine(__SOURCE_DIRECTORY__, "Input\DayFive.txt") |> readLines 
 let inpFive = rawFive
 
@@ -112,6 +108,8 @@ let ansFiveTwo = DayFive.Two inpFive
 // 
 // Day Six
 // 
+
+#load "DaySix.fs"
 
 let rawSix = Path.Combine(__SOURCE_DIRECTORY__, "Input\DaySix.txt") |> readLines 
 let inpSix =
@@ -128,6 +126,8 @@ let ansSixTwo = DaySix.Two inpSix
 // 
 // Day Seven
 // 
+
+#load "DaySeven.fs"
 
 let crtItem (inp: string) : string * string list =
     let m = Regex.Match(inp, @"^(?<Name>.+ bag)s contain (?<Content>.+)$")
@@ -157,6 +157,8 @@ let ansSevenTwo = DaySeven.Two inpSeven "shiny gold bag"
 // Day Eight
 // 
 
+#load "DayEight.fs"
+
 let rawEight = Path.Combine(__SOURCE_DIRECTORY__, "Input\DayEight.txt") |> readLines 
 let inpEight = rawEight 
                 |> List.map (fun i -> i.Split(' '))
@@ -169,8 +171,37 @@ let ansEightTwo = DayEight.Two inpEight
 // Day Nine
 // 
 
+#load "DayNine.fs"
+
 let rawNine = Path.Combine(__SOURCE_DIRECTORY__, "Input\DayNine.txt") |> readLines 
 let inpNine = rawNine |> List.map uint64
 
-let ansNineONe = DayNine.One inpNine 25
+let ansNineOne = DayNine.One inpNine 25
 let ansNineTwo = DayNine.Two inpNine 25
+
+// 
+// Day Ten
+// 
+
+#load "DayTen.fs"
+
+let rawTen = Path.Combine(__SOURCE_DIRECTORY__, "Input\DayTen.txt") |> readLines 
+let inpTen = rawTen |> List.map int
+
+let ansTenOne = DayTen.One inpTen 
+let ansTwoTen = DayTen.Two inpTen 
+
+
+// 
+// Day Eleven
+// 
+
+#load "DayEleven.fs"
+
+let rawEleven = Path.Combine(__SOURCE_DIRECTORY__, "Input\DayEleven.txt") |> readLines 
+let inpEleven = rawEleven |> Array.ofList
+                          |> Array.map (fun i -> i.ToCharArray() ) 
+                          |> DayEleven.SeatMap.create
+
+let ansElevenOne = DayEleven.One inpEleven
+let ansElevenTwo = DayEleven.Two inpEleven

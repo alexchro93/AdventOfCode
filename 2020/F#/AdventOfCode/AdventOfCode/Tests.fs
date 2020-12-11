@@ -140,7 +140,7 @@ type Tests() =
     [<TestCaseSource("NineOneInp")>]
      member __.DayNineOne(x) = Solutions.DayNine.One x 5
 
-    // Day Nine Part One
+    // Day Nine Part Two
 
     static member NineTwoInp = [
         TestCaseData([
@@ -170,3 +170,44 @@ type Tests() =
     [<TestCaseSource("NineTwoInp")>]
     member __.DayNineTwo(x) = Solutions.DayNine.Two x 5
 
+    // Day Ten Part One
+
+    static member TenTwoOne = [
+        TestCaseData([
+            16;
+            10;
+            15;
+            5;
+            1;
+            11;
+            7;
+            19;
+            6;
+            12;
+            4;
+        ]).Returns(22)
+    ]
+
+    [<TestCaseSource("TenTwoInp")>]
+    member __.DayTenOne(x) = Solutions.DayTen.Two x
+
+    // Day Ten Part Two
+
+    static member TenTwoInp = [
+        TestCaseData([
+            16;
+            10;
+            15;
+            5;
+            1;
+            11;
+            7;
+            19;
+            6;
+            12;
+            4;
+        ]).Returns(8)
+    ]
+
+    [<TestCaseSource("TenTwoInp")>]
+    member __.DayTenTwo(x) = Solutions.DayTen.Two x
