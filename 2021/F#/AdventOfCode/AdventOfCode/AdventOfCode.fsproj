@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="DaySeven.fs" />
+    <Compile Include="DaySix.fs" />
+    <Compile Include="DayFive.fs" />
+    <Compile Include="DayFour.fs" />
+    <Compile Include="DayThree.fs" />
+    <Compile Include="DayTwo.fs" />
+    <None Include="Runner.fsx" />
+    <Compile Include="Input\DaySeven.txt" />
+    <Content Include="Input\DaySix.txt" />
+    <Content Include="Input\DayFive.txt" />
+    <Content Include="Input\DayFour.txt" />
+    <Content Include="Input\DayThree.txt" />
+    <Content Include="Input\DayTwo.txt" />
+    <Content Include="Input\DayOne.txt" />
+    <Compile Include="DayOne.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharpx.Extras" Version="3.0.0" />
+  </ItemGroup>
+
+</Project>
