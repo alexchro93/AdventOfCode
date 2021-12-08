@@ -5,6 +5,7 @@
 #load "DayFive.fs"
 #load "DaySix.fs"
 #load "DaySeven.fs"
+#load "DayEight.fs"
 
 #r "nuget: FSharpx.Extras" 
 
@@ -108,3 +109,15 @@ let inpSeven = rawSeven.Head |> String.splitChar [|','|] |> Array.toList |> List
 
 DaySeven.one inpSeven
 DaySeven.two inpSeven
+
+//
+// Day Eight
+//
+
+let rawEight = Path.Combine(__SOURCE_DIRECTORY__, "Input\DayEight.txt") |> readLines
+let inpEight = rawEight |> List.map ( fun l -> 
+                                        let parts = l |> String.splitChar [|'|'|] 
+                                        parts[0].Trim().Split([|' '|]) |> Array.toList, parts[1].Trim().Split([|' '|]) |> Array.toList )
+
+DayEight.one (inpEight |> List.map snd)
+DayEight.two inpEight
