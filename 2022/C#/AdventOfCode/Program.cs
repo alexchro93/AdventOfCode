@@ -3,9 +3,6 @@
  */
 
 using AdventOfCode;
-using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
-using System.Windows.Markup;
 
 var rawOne = File.ReadAllLines("Input/DayOne.txt");
 var inpOne = rawOne.Select(i => int.TryParse(i, out var res) ? res : int.MinValue).ToList();
@@ -133,3 +130,19 @@ var ansSevenTwo = DaySeven.Two(rawSeven);
 
 Console.WriteLine($"Day Seven One: {ansSevenOne}");
 Console.WriteLine($"Day Seven Two: {ansSevenTwo}");
+
+/*
+ * Day Eight
+ */
+
+var rawTen = File.ReadAllLines("Input/DayTen.txt").ToList();
+
+var ansTenOne = DayTen.One(rawTen);
+var ansTenTwo = DayTen.Two(rawTen);
+
+Console.WriteLine($"Day Ten One: {ansTenOne}");
+Console.WriteLine($"Day Ten Two: {ansTenTwo.Length}");
+for (var i = 0; i < 6; i++)
+{
+   Console.WriteLine($"{ansTenTwo.Substring(i * 40, 40)}");
+}
