@@ -132,7 +132,7 @@ Console.WriteLine($"Day Seven One: {ansSevenOne}");
 Console.WriteLine($"Day Seven Two: {ansSevenTwo}");
 
 /*
- * Day Eight
+ * Day Ten
  */
 
 var rawTen = File.ReadAllLines("Input/DayTen.txt").ToList();
@@ -146,3 +146,22 @@ for (var i = 0; i < 6; i++)
 {
    Console.WriteLine($"{ansTenTwo.Substring(i * 40, 40)}");
 }
+
+/*
+ * Day Eleven
+ */
+
+var rawEleven = File.ReadAllLines("Input/DayEleven.txt")
+   .ToList();
+var inpElevenOne = rawEleven.Chunk(7)
+   .Select(c => new Monkey(c))
+   .ToList();
+var inpElevenTwo = rawEleven.Chunk(7)
+   .Select(c => new Monkey(c))
+   .ToList();
+
+var ansElevenOne = DayEleven.One(inpElevenOne);
+var ansElevenTwo = DayEleven.Two(inpElevenTwo);
+
+Console.WriteLine($"Day Eleven One: {ansElevenOne}");
+Console.WriteLine($"Day Eleven Two: {ansElevenTwo}");
