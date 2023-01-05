@@ -132,7 +132,6 @@ Console.WriteLine($"Day Seven One: {ansSevenOne}");
 Console.WriteLine($"Day Seven Two: {ansSevenTwo}");
 
 /*
-<<<<<<< HEAD
  * Day Eight
  */
 
