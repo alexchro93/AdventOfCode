@@ -3,9 +3,6 @@
  */
 
 using AdventOfCode;
-using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
-using System.Windows.Markup;
 
 var rawOne = File.ReadAllLines("Input/DayOne.txt");
 var inpOne = rawOne.Select(i => int.TryParse(i, out var res) ? res : int.MinValue).ToList();
@@ -135,6 +132,7 @@ Console.WriteLine($"Day Seven One: {ansSevenOne}");
 Console.WriteLine($"Day Seven Two: {ansSevenTwo}");
 
 /*
+<<<<<<< HEAD
  * Day Eight
  */
 
@@ -164,6 +162,41 @@ var ansNineTwo = DayNine.Two(inpNine);
 
 Console.WriteLine($"Day Nine One: {ansNineOne}");
 Console.WriteLine($"Day Nine Two: {ansNineTwo}");
+
+/*
+ * Day Ten
+ */
+
+var rawTen = File.ReadAllLines("Input/DayTen.txt").ToList();
+
+var ansTenOne = DayTen.One(rawTen);
+var ansTenTwo = DayTen.Two(rawTen);
+
+Console.WriteLine($"Day Ten One: {ansTenOne}");
+Console.WriteLine($"Day Ten Two: {ansTenTwo.Length}");
+for (var i = 0; i < 6; i++)
+{
+   Console.WriteLine($"{ansTenTwo.Substring(i * 40, 40)}");
+}
+
+/*
+ * Day Eleven
+ */
+
+var rawEleven = File.ReadAllLines("Input/DayEleven.txt")
+   .ToList();
+var inpElevenOne = rawEleven.Chunk(7)
+   .Select(c => new Monkey(c))
+   .ToList();
+var inpElevenTwo = rawEleven.Chunk(7)
+   .Select(c => new Monkey(c))
+   .ToList();
+
+var ansElevenOne = DayEleven.One(inpElevenOne);
+var ansElevenTwo = DayEleven.Two(inpElevenTwo);
+
+Console.WriteLine($"Day Eleven One: {ansElevenOne}");
+Console.WriteLine($"Day Eleven Two: {ansElevenTwo}");
 
 /*
  * Day Twelve
