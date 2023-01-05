@@ -133,3 +133,49 @@ var ansSevenTwo = DaySeven.Two(rawSeven);
 
 Console.WriteLine($"Day Seven One: {ansSevenOne}");
 Console.WriteLine($"Day Seven Two: {ansSevenTwo}");
+
+/*
+ * Day Eight
+ */
+
+var rawEight = File.ReadAllLines("Input/DayEight.txt");
+var inpEight = rawEight.Select(l => l.Select(c => c - '0').ToList()).ToList();
+
+var ansEightOne = DayEight.One(inpEight);
+var ansEightTwo = DayEight.Two(inpEight);
+
+Console.WriteLine($"Day Eight One: {ansEightOne}");
+Console.WriteLine($"Day Eight Two: {ansEightTwo}");
+
+/*
+ * Day Nine
+ */
+
+var rawNine = File.ReadAllLines("Input/DayNine.txt");
+var inpNine = rawNine.Select(l =>
+{
+    var parts = l.Split(" ");
+    return (l[0], int.Parse(parts[1]));
+})
+.ToList();
+
+var ansNineOne = DayNine.One(inpNine);
+var ansNineTwo = DayNine.Two(inpNine);
+
+Console.WriteLine($"Day Nine One: {ansNineOne}");
+Console.WriteLine($"Day Nine Two: {ansNineTwo}");
+
+/*
+ * Day Twelve
+ */
+
+var rawTwelve = File.ReadAllLines("Input/DayTwelve.txt");
+var inpTwelve = rawTwelve
+    .Select(i => i.ToList())
+    .ToList();
+
+var ansTwelveOne = DayTwelve.One(inpTwelve);
+var ansTwelveTwo = DayTwelve.Two(inpTwelve);
+
+Console.WriteLine($"Day Twelve One: {ansTwelveOne}");
+Console.WriteLine($"Day Twelve Two: {ansTwelveTwo}");
