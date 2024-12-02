@@ -1,30 +1,26 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/alexchro93/2024/go/utils"
 )
 
-func day1() {
+func Day1() {
 	// Part One
-	file, err := os.Open("input/day1.txt")
+	lines, err := utils.ReadAllLines("input/day1.txt")
 	if err != nil {
-		fmt.Println("Error reading file 'input/day1.txt'")
+		fmt.Println("Error reading file day1.txt")
 		return
 	}
-	defer file.Close()
 
-	left := []int{}
-	right := []int{}
+	left := make([]int, 500)
+	right := make([]int, 500)
 
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		line := scanner.Text()
-
+	for _, line := range lines {
 		parts := strings.Split(line, "   ")
 		if len(parts) != 2 {
 			fmt.Println("Invalid line format:", line)
@@ -72,24 +68,4 @@ func day1() {
 	}
 
 	fmt.Printf("Day 1 Part 2: %v\n", sim)
-}
-
-func main() {
-	if len(os.Args) != 2 {
-		fmt.Println("Usage: solutions <day>")
-		return
-	}
-
-	day, err := strconv.Atoi(os.Args[1])
-	if err != nil {
-		fmt.Println("Invalid day:", os.Args[1])
-		return
-	}
-
-	switch day {
-	case 1:
-		day1()
-	default:
-		fmt.Println("Day not implemented")
-	}
 }
