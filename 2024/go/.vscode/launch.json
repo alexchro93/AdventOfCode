@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "${fileDirname}",
-            "args": [ "5" ]
+            "args": [ "6" ]
         }
     ]
 }

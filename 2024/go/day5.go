@@ -22,7 +22,7 @@ type Input struct {
 	updates []Update
 }
 
-func ParseInput() (*Input, error) {
+func ParseDay5Input() (*Input, error) {
 	lines, err := utils.ReadAllLines("input/day5.txt")
 	if err != nil {
 		return nil, err
@@ -102,11 +102,10 @@ func FixInvalid(update int, input *Input) bool {
 }
 
 func Day5() {
-	input, err := ParseInput()
+	input, err := ParseDay5Input()
 	if err != nil {
 		return
 	}
-	fmt.Println("Input length: ", len(input.rules))
 
 	invalid := make([]int, 0)
 
