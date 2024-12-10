@@ -5,6 +5,10 @@ import (
 	"os"
 )
 
+type Point struct {
+	X, Y int
+}
+
 // Reads all lines from a file and returns them as a slice of strings.
 // If there's a problem opening the file, an error is returned.
 func ReadAllLines(name string) ([]string, error) {
