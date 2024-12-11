@@ -3,10 +3,19 @@ package utils
 import (
 	"bufio"
 	"os"
+
+	"golang.org/x/exp/constraints"
 )
 
 type Point struct {
 	X, Y int
+}
+
+// Places the contents of src in to dst.
+func MergeMaps[K comparable, V constraints.Integer](dst, src map[K]V) {
+	for key, value := range src {
+		dst[key] += value
+	}
 }
 
 // Reads all lines from a file and returns them as a slice of strings.
