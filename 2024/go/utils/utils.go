@@ -11,6 +11,42 @@ type Point struct {
 	X, Y int
 }
 
+// A queue for holding a specific type
+type Queue[T any] []T
+
+// Pushes an element on to the queue.
+func (self *Queue[T]) Push(x T) {
+	*self = append(*self, x)
+}
+
+// Determines if the queue is empty.
+func (self *Queue[T]) Empty() bool {
+	return len(*self) == 0
+}
+
+// Pops an element from the queue.
+func (self *Queue[T]) Pop() T {
+	h := *self
+	var el T
+	l := len(h)
+	el, *self = h[0], h[1:l]
+	// Or use this instead for a Stack
+	// el, *self = h[l-1], h[0:l-1]
+	return el
+}
+
+// Creates a new queue.
+func NewQueue[T any](items ...T) *Queue[T] {
+	if items == nil {
+		return &Queue[T]{}
+	}
+	queue := &Queue[T]{}
+	for _, item := range items {
+		queue.Push(item)
+	}
+	return queue
+}
+
 // Node in a doubly-linked list.
 type Node[T any] struct {
 	next  *Node[T]
