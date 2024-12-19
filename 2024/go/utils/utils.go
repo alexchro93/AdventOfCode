@@ -2,6 +2,7 @@ package utils
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 
 	"golang.org/x/exp/constraints"
@@ -154,4 +155,16 @@ func ReadAllLines(name string) ([]string, error) {
 	}
 
 	return lines, nil
+}
+
+// Prints the grid to the console.
+func PrintGrid(grid [][]rune) {
+	yMax := len(grid)
+	xMax := len(grid[0])
+	for j := 0; j < yMax; j++ {
+		for i := 0; i < xMax; i++ {
+			fmt.Printf("%c", grid[j][i])
+		}
+		fmt.Print("\n")
+	}
 }

@@ -10,7 +10,7 @@ import (
 )
 
 /*
-Special thanks to the following Reddit post: https://www.reddit.com/r/adventofcode/comments/1hd7irq/2024_day_13_an_explanation_of_the_mathematics/
+	Special thanks to the following Reddit post: https://www.reddit.com/r/adventofcode/comments/1hd7irq/2024_day_13_an_explanation_of_the_mathematics/
 */
 
 type button struct {
